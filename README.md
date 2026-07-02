@@ -59,6 +59,29 @@ reference implementation is gftdcojp's `ai-gftd-mangaka` actor
 (ADR-2607023000: コードは kotoba-lang、職能は cloud-itonami-isco、商売は
 gftdcojp).
 
+## Reference actor (`:maturity :implemented`)
+
+Full itonami Actor pattern (like
+[`cloud-itonami-isco-6130`](https://github.com/cloud-itonami/cloud-itonami-isco-6130) /
+[`-2652`](https://github.com/cloud-itonami/cloud-itonami-isco-2652)): a real
+[`kotoba-lang/langgraph`](https://github.com/kotoba-lang/langgraph)
+`StateGraph` with Advisor and Governor as distinct nodes and human-in-the-loop
+interrupt/resume. The governor validates delivered 原稿 (genko) documents
+against the [`kami-genko`](https://github.com/kotoba-lang/kami-genko)
+document-model vocabulary (kotoba-lang craft lib, ADR-2607020300 /
+ADR-2607023000) — **a doc carrying node types outside the genko model is a
+HARD hold**, and page-delivery commits carry page/node counts derived from
+the same model.
+
+- HARD → `:hold`: unregistered work, non-`:propose` effect, invalid genko
+  node types.
+- ESCALATE → `:request-approval` (human-signed): original-artwork shipment,
+  artwork licensing, low confidence.
+
+```bash
+clojure -M:test
+```
+
 See [`docs/business-model.md`](docs/business-model.md) and
 [`docs/operator-guide.md`](docs/operator-guide.md).
 
