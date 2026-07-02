@@ -1,0 +1,16 @@
+{:itonami.blueprint/id "cloud-itonami-isco-2651"
+ :itonami.blueprint/name "Independent Visual Art & Manga Studio"
+ :itonami.blueprint/isco-08 "2651"
+ :itonami.blueprint/domain :creative/visual-art
+ :itonami.blueprint/license "AGPL-3.0-or-later"
+ :itonami.blueprint/social-impact [:creative-livelihoods :cultural-expression :local-jobs]
+ :itonami.blueprint/governor :visual-art-governor
+ :itonami.blueprint/robotics true
+ :itonami.blueprint/required-technologies [:robotics :identity :forms :dmn :bpmn :audit-ledger]
+ :itonami.blueprint/craft-libraries ["kotoba-lang/kami-genko"
+                                     "kotoba-lang/kami-mangaka-page-clj"
+                                     "kotoba-lang/kami-mangaka-text-clj"
+                                     "kotoba-lang/kami-mangaka-scene-clj"
+                                     "kotoba-lang/kami-mangaka-render-clj"
+                                     "kotoba-lang/kami-mangaka-reader-clj"]
+ :itonami.blueprint/status :public-oss}
