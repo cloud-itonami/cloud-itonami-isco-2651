@@ -13,4 +13,5 @@
                                      "kotoba-lang/kami-mangaka-scene-clj"
                                      "kotoba-lang/kami-mangaka-render-clj"
                                      "kotoba-lang/kami-mangaka-reader-clj"]
- :itonami.blueprint/status :public-oss}
+ :itonami.blueprint/status :public-oss
+ :itonami.blueprint/maturity :implemented}
