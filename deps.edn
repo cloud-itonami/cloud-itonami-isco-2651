@@ -9,8 +9,8 @@
         ;; kami-genko craft lib (ADR-2607020300 / ADR-2607023000) — the
         ;; governor validates delivered 原稿 (genko) documents against the
         ;; genko document-model vocabulary (node types).
-        io.github.kotoba-lang/kami-genko
-        {:git/url "https://github.com/kotoba-lang/kami-genko"
+        io.github.cloud-itonami/app-itonami-genko
+        {:git/url "https://github.com/cloud-itonami/app-itonami-genko"
          :git/sha "c79257975cb3dcead9a80962fedcad08b2dd5071"}}
  :aliases
  {
