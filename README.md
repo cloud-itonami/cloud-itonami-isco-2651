@@ -79,7 +79,7 @@ the same model.
   artwork licensing, low confidence.
 
 ```bash
-clojure -M:test
+kbb -M:test
 ```
 
 See [`docs/business-model.md`](docs/business-model.md) and
