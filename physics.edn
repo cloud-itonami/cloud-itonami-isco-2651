@@ -1,0 +1,32 @@
+;; What this vertical's robot physically does, declared for
+;; kotoba.robotics.process (kotoba-lang/robotics). `kbb -M:physics` runs it.
+;;
+;; README "Robotics premise": a print-and-scan robot performs physical proof
+;; printing, original-art scanning and artwork packaging for visual artists
+;; (ISCO 2651). Its physical work is placing an original canvas face-down on
+;; the scanner bed, and moving a crated artwork upright to the packing bay.
+;;
+;; Every number without a cited source is marked `estimate` in its :basis.
+;; Replacing an estimate with a sourced value is this bot's growth work.
+{:physics/schema "itonami.physical-ai.spec.v1"
+ :repo "cloud-itonami/cloud-itonami-isco-2651"
+ :cases
+ [{:id :canvas-onto-scanner-bed
+   :kind :manipulator
+   :procedure "arm lifts an original canvas from the easel rack and lays it on the flatbed scanner"
+   :params {:l1-m 0.50 :l2-m 0.45 :m1-kg 5.0 :m2-kg 3.5
+            :from [0.30 0.60] :to [0.75 0.10] :duration-s 3.0 :steps 500}
+   :sweep {:param :payload-kg :values [0.5 1.5 3.0 5.0 8.0]}
+   :quantity :peak-tau1-nm
+   :limit {:max 60.0 :basis "estimate: continuous shoulder torque of a light collaborative arm (~5 kg payload class) at this reach"}
+   :boundary {:lo 0.1 :hi 30.0}}
+  {:id :crated-artwork-to-packing
+   :kind :transport
+   :procedure "robot moves an upright crated original to the packing bay; a tall crate raises the centre of gravity"
+   :params {:mass-kg 60.0 :payload-kg 25.0 :distance-m 20.0 :v-max-mps 0.6 :a-max-mps2 0.4
+            :brake-decel-mps2 1.2 :drive-force-n 200.0 :crr 0.015
+            :support-half-length-m 0.25}
+   :sweep {:param :cog-height-m :values [0.4 0.6 0.8 1.0 1.2]}
+   :quantity :min-tipover-margin
+   :limit {:min 0.5 :basis "estimate: keep at least half of the static tip-over reserve when braking with an irreplaceable original on board"}
+   :boundary {:lo 0.2 :hi 2.0}}]}
