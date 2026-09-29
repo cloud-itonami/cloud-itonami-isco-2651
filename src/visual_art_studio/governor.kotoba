@@ -5,7 +5,7 @@
   downstream of `:advise` — the Advisor has no notion of work provenance,
   genko document validity, or licensing terms, so this MUST be a separate
   system able to reject a proposal (itonami actor pattern, per
-  ADR-2607011000 / CLAUDE.md Actors section).
+  ADR-2607011000 / AGENTS.md Actors section).
 
   The document check is NOT bespoke: a delivered 原稿 (genko) document is
   validated against `kami.mangaka.genko`'s node-type vocabulary from the
